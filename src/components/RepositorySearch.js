@@ -18,11 +18,14 @@ class IssueSelector extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input 
-          placeholder="Repository name" 
-          value={this.state.inputValue}
-          onChange={e => this.handleInputChange(e.target.value)}
-        />
+        <div className="ui input">
+          <input 
+            type="text"
+            placeholder="Repository name" 
+            value={this.state.inputValue}
+            onChange={e => this.handleInputChange(e.target.value)}
+          />
+        </div>
       </form>
     )
   }

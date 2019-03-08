@@ -11,7 +11,7 @@ class App extends Component {
 
   render () {
     return (
-      <div>
+      <div className="ui container">
         <h1>Github repos open ussues tracker</h1>
         <p>Please write repositories name in input to see the issues currently opened in it</p>
         <RepositorySearch onSearchSubmit={this.onSearchSubmit} />

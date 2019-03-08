@@ -48,8 +48,6 @@ const Profile = ({ name }) => {
           const repositories = data.search.edges;
 
           return repositories.map(repository => {
-            // console.log(repository)
-            // console.log(repository.node.issues.edges)
             return (
               <div key={repository.node.id}>
                 <p>{repository.node.name}</p>
@@ -59,9 +57,7 @@ const Profile = ({ name }) => {
           })
         }
 
-        return (
-          <div>Replace me with a normal list of repositories</div>
-        )
+        return null
       }}
     </Query>
   )

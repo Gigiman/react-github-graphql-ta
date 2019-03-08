@@ -27,7 +27,7 @@ const Comment = (props) => {
               input = node;
             }}
           />
-          <button onClick={ () => addComment({ variables: {id: props.id, body: input.value } }) }>Add Comment</button>
+          <button onClick={ () => addComment({ variables: {id: props.id, body: input.value } }) }>Comment</button>
         </div>
       )}
     </Mutation>
