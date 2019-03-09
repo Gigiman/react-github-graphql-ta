@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import _isEmpty from 'lodash/isEmpty'
 
-// import Loader from './Loader';
+import Loader from './Loader';
 import IssueList from './IssueList';
 
 const GET_REPOSITORIES = gql`
@@ -43,7 +43,19 @@ const GET_REPOSITORIES = gql`
 const Profile = ({ name }) => {
   return (
     <Query query={ GET_REPOSITORIES } variables={{ name }}>
-      {({ data }) => {
+      {({ data, loading, error }) => {
+        if (loading) {
+          return <Loader />
+        }
+
+        if (error) {
+          return (
+            <div>
+              Something went wrong
+            </div>
+          )
+        }
+
         if (data && !_isEmpty(name)) {
           const repositories = data.search.edges;
 
