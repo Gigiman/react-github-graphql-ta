@@ -13,21 +13,31 @@ const ADD_COMMENT=gql`
   }
 `;
 
+
 const Comment = (props) => {
   let input;
-
-  console.log(props);
 
   return (
     <Mutation mutation={ADD_COMMENT}>
       {(addComment) => (
-        <div>
-          <textarea
-            ref={node => {
-              input = node;
+        <div className="ui form">
+          <div className="field">
+            <label>Commentary</label>
+            <textarea
+              ref={node => {
+                input = node;
+              }}
+            />
+          </div>
+          <button 
+            className="ui black button" 
+            onClick={() => {
+              addComment({ variables: {id: props.id, body: input.value } });
+              props.onSave();
             }}
-          />
-          <button onClick={ () => addComment({ variables: {id: props.id, body: input.value } }) }>Comment</button>
+          >
+            Save
+          </button>
         </div>
       )}
     </Mutation>

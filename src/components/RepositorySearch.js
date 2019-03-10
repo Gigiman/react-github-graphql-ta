@@ -18,13 +18,21 @@ class IssueSelector extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="ui input">
+        <div className="ui input search-input">
           <input 
             type="text"
             placeholder="Repository name" 
             value={this.state.inputValue}
             onChange={e => this.handleInputChange(e.target.value)}
           />
+        </div>
+        <div>
+          <button 
+            onClick={this.handleSubmit} 
+            className="ui inverted primary button search-button"
+          >
+            Search
+          </button>        
         </div>
       </form>
     )

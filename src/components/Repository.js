@@ -48,7 +48,7 @@ const Profile = ({ name }) => {
           return <Loader />
         }
 
-        if (error) {
+        if (error && !_isEmpty(name)) {
           return (
             <div>
               Something went wrong
@@ -62,7 +62,7 @@ const Profile = ({ name }) => {
           return repositories.map(repository => {
             return (
               <div key={repository.node.id}>
-                <p>{repository.node.name}</p>
+                <h3 className="repository-name">Repository name: {repository.node.name}</h3>
                 <IssueList issues={repository.node.issues.edges} />
               </div>
             )
